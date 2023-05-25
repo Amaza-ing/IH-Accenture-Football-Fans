@@ -1,0 +1,51 @@
+<h1>Fan Page</h1>
+<div>
+  <input
+    type="text"
+    placeholder="Name..."
+    (keyup.enter)="addFan()"
+    [(ngModel)]="fanName"
+  />
+  <input
+    type="number"
+    placeholder="Age..."
+    (keyup.enter)="addFan()"
+    [(ngModel)]="fanAge"
+  />
+  <input
+    type="text"
+    placeholder="Country..."
+    (keyup.enter)="addFan()"
+    [(ngModel)]="fanCountry"
+  />
+  <select [(ngModel)]="fanTeam">
+    <option value="madrid">Real Madrid C. F.</option>
+    <option value="barcelona">F. C. Barcelona</option>
+  </select>
+  <button [disabled]="isDisabled()" (click)="addFan()">Add</button>
+</div>
+
+<div class="container">
+  <div class="fan-list">
+    <h2>Madrid Fans</h2>
+    <div *ngFor="let fan of madridFans; let i = index">
+      <!-- <img [src]="fan.profilePicture" [alt]="fan.name" />
+      <p>{{ fan.name }}</p>
+      <p>{{ fan.age }}</p>
+      <p>{{ fan.country }}</p>
+      <button (click)="removeFan(i, 'madrid')">Delete</button> -->
+      <app-fan-item [fanProp]="fan" [index]="i"></app-fan-item>
+    </div>
+  </div>
+
+  <div class="fan-list">
+    <h2>Barcelona Fans</h2>
+    <div *ngFor="let fan of barcelonaFans; let i = index">
+      <img [src]="fan.profilePicture" [alt]="fan.name" />
+      <p>{{ fan.name }}</p>
+      <p>{{ fan.age }}</p>
+      <p>{{ fan.country }}</p>
+      <button (click)="removeFan(i, 'barcelona')">Delete</button>
+    </div>
+  </div>
+</div>
