@@ -34,18 +34,22 @@
       <p>{{ fan.age }}</p>
       <p>{{ fan.country }}</p>
       <button (click)="removeFan(i, 'madrid')">Delete</button> -->
-      <app-fan-item [fanProp]="fan" [index]="i"></app-fan-item>
+      <app-fan-item
+        [fanProp]="fan"
+        [index]="i"
+        (removeFanEvent)="removeFan($event, 'madrid')"
+      ></app-fan-item>
     </div>
   </div>
 
   <div class="fan-list">
     <h2>Barcelona Fans</h2>
     <div *ngFor="let fan of barcelonaFans; let i = index">
-      <img [src]="fan.profilePicture" [alt]="fan.name" />
-      <p>{{ fan.name }}</p>
-      <p>{{ fan.age }}</p>
-      <p>{{ fan.country }}</p>
-      <button (click)="removeFan(i, 'barcelona')">Delete</button>
+      <app-fan-item
+        [fanProp]="fan"
+        [index]="i"
+        (removeFanEvent)="removeFan($event, 'barcelona')"
+      ></app-fan-item>
     </div>
   </div>
 </div>

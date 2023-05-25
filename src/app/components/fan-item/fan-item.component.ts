@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Fan } from 'src/app/models/fan.model';
 
 @Component({
@@ -14,13 +14,18 @@ export class FanItemComponent {
   @Input()
   index: number;
 
+  @Output()
+  removeFanEvent: EventEmitter<number>
+
   constructor() {
     // this.fan = new Fan("", 0, "");
     this.index = 0;
+    this.removeFanEvent = new EventEmitter<number>();
   }
 
-  removeFan(): void {
+  removeFanFromItem(): void {
     console.log("deleting fan..." + this.index);
+    this.removeFanEvent.emit(this.index);
   }
 
 }
