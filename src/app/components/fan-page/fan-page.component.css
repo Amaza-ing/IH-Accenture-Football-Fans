@@ -6,3 +6,19 @@
 .fan-list div {
   margin: 1em 0;
 }
+
+.counter {
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+ 
+.counter p {
+  color: white;
+  font-size: 20em;
+  text-align: center;
+  margin-top: 1em;
+}

@@ -1,4 +1,9 @@
 <h1>Fan Page</h1>
+
+<div class="counter" *ngIf="counter > 0">
+  <p>{{ counter }}</p>
+</div>
+
 <div>
   <input
     type="text"
@@ -28,6 +33,7 @@
 <div class="container">
   <div class="fan-list">
     <h2>Madrid Fans</h2>
+    <button (click)="addRandomFan('madrid')">Add Random Fan</button>
     <div *ngFor="let fan of madridFans; let i = index">
       <!-- <img [src]="fan.profilePicture" [alt]="fan.name" />
       <p>{{ fan.name }}</p>
@@ -44,6 +50,7 @@
 
   <div class="fan-list">
     <h2>Barcelona Fans</h2>
+    <button (click)="addRandomFan('barcelona')">Add Random Fan</button>
     <div *ngFor="let fan of barcelonaFans; let i = index">
       <app-fan-item
         [fanProp]="fan"
